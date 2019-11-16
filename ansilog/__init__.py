@@ -203,7 +203,7 @@ class screen:
 #--------------------------------------------------------------------
 class Formatter(logging.Formatter):
     def __init__(self, stream):
-        super().__init__(self)
+        super().__init__()
         self.stream = stream
         self.level_colors = {
             logging.CRITICAL:   lambda x: bg.red(fg.bright.white(x)),

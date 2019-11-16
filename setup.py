@@ -10,7 +10,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='ansilog',
-    version='1.1',
+    version='1.2',
     description="Smart and colorful solution for logging, "
                 "output, and basic terminal control.",
     long_description=long_description,
