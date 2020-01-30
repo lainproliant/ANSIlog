@@ -10,7 +10,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='ansilog',
-    version='1.3',
+    version='1.4',
     description="Smart and colorful solution for logging, "
                 "output, and basic terminal control.",
     long_description=long_description,
@@ -40,7 +40,6 @@ setup(
     packages=['ansilog'],
     install_requires=[],
     extras_require={},
-    package_data={'ansilog': ['*.pyi', 'py.typed']},
-    data_files=[("", ["LICENSE"])],
+    package_data={'ansilog': ['*.pyi', 'py.typed', "LICENSE"]},
     entry_points={'console_scripts': []},
 )
