@@ -50,6 +50,11 @@ NO_COLOR = "NO_COLOR" in os.environ
 
 
 # --------------------------------------------------------------------
+def identity(x: str) -> str:
+    return x
+
+
+# --------------------------------------------------------------------
 class Node:
     def __init__(self):
         self.content = []
@@ -211,12 +216,12 @@ def fg_color(x):
 
 # --------------------------------------------------------------------
 def bold_color(x):
-    TagFactory() if NO_COLOR else TagFactory(attr(1, 30 + x))
+    return TagFactory() if NO_COLOR else TagFactory(attr(1, 30 + x))
 
 
 # --------------------------------------------------------------------
 def bg_color(x):
-    TagFactory() if NO_COLOR else TagFactory(attr(40 + x))
+    return TagFactory() if NO_COLOR else TagFactory(attr(40 + x))
 
 
 # --------------------------------------------------------------------
@@ -225,36 +230,36 @@ colors = ("black", "red", "green", "yellow", "blue", "magenta", "cyan", "white")
 
 # --------------------------------------------------------------------
 class fg:
-    black = ""
-    red = ""
-    green = ""
-    yellow = ""
-    blue = ""
-    magenta = ""
-    cyan = ""
-    white = ""
+    black = identity
+    red = identity
+    green = identity
+    yellow = identity
+    blue = identity
+    magenta = identity
+    cyan = identity
+    white = identity
 
     class bright:
-        black = ""
-        red = ""
-        green = ""
-        yellow = ""
-        blue = ""
-        magenta = ""
-        cyan = ""
-        white = ""
+        black = identity
+        red = identity
+        green = identity
+        yellow = identity
+        blue = identity
+        magenta = identity
+        cyan = identity
+        white = identity
 
 
 # --------------------------------------------------------------------
 class bg:
-    black = ""
-    red = ""
-    green = ""
-    yellow = ""
-    blue = ""
-    magenta = ""
-    cyan = ""
-    white = ""
+    black = identity
+    red = identity
+    green = identity
+    yellow = identity
+    blue = identity
+    magenta = identity
+    cyan = identity
+    white = identity
 
 
 # --------------------------------------------------------------------
