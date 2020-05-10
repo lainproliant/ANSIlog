@@ -10,7 +10,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='ansilog',
-    version='1.5',
+    version='1.6',
     description="Smart and colorful solution for logging, "
                 "output, and basic terminal control.",
     long_description=long_description,
@@ -28,11 +28,7 @@ setup(
         'Topic :: Software Development :: Libraries :: Application Frameworks',
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.2',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6'
+        'Programming Language :: Python :: 3.8'
     ],
 
     keywords='ANSI CLI terminal color colour',
@@ -40,6 +36,6 @@ setup(
     packages=['ansilog'],
     install_requires=[],
     extras_require={},
-    package_data={'ansilog': ['*.pyi', 'py.typed', "LICENSE"]},
+    package_data={'ansilog': ["LICENSE"]},
     entry_points={'console_scripts': []},
 )

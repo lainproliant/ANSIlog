@@ -95,8 +95,7 @@ class Node:
     def __add__(self, rhs):
         if isinstance(rhs, Node):
             return Node.list(self, rhs)
-        else:
-            return Node.list(self, Text(rhs))
+        return Node.list(self, Text(rhs))
 
 
 # --------------------------------------------------------------------
@@ -225,6 +224,36 @@ def bg_color(x):
 
 
 # --------------------------------------------------------------------
+def _rgb(code, r, g=None, b=None, colorspace=2):
+    if isinstance(r, str):
+        rgb_str = r
+        if rgb_str.startswith('#'):
+            rgb_str = rgb_str[1:]
+        r = int(rgb_str[0:2], base=16)
+        g = int(rgb_str[2:4], base=16)
+        b = int(rgb_str[4:6], base=16)
+
+    elif g is None and b is None:
+        rgb_int = r
+
+        b = rgb_int & 0xFF
+        g = (rgb_int >> 8) & 0xFF
+        r = (rgb_int >> 16) & 0xFF
+
+    return TagFactory(f"\033[{code};{colorspace};{r};{g};{b}m")
+
+
+# --------------------------------------------------------------------
+def fg_rgb(r, g=None, b=None, colorspace=2):
+    return _rgb(38, r, g, b, colorspace)
+
+
+# --------------------------------------------------------------------
+def bg_rgb(r, g=None, b=None, colorspace=2):
+    return _rgb(48, r, g, b, colorspace)
+
+
+# --------------------------------------------------------------------
 colors = ("black", "red", "green", "yellow", "blue", "magenta", "cyan", "white")
 
 
@@ -238,6 +267,10 @@ class fg:
     magenta = identity
     cyan = identity
     white = identity
+
+    @staticmethod
+    def rgb(r, g=None, b=None, colorspace=2):
+        return _rgb(38, r, g, b, colorspace)
 
     class bright:
         black = identity
@@ -260,6 +293,10 @@ class bg:
     magenta = identity
     cyan = identity
     white = identity
+
+    @staticmethod
+    def rgb(r, g=None, b=None, colorspace=2):
+        return _rgb(48, r, g, b, colorspace)
 
 
 # --------------------------------------------------------------------
