@@ -1,5 +1,4 @@
-# `\033[1;31m [ANSIlog] \033[0m`: Utilities for colorful output, logging, and
-# basic terminal control.
+# `\033[1;31m [ANSIlog] \033[0m`: Utilities for colorful output, logging, and basic terminal control.
 
 `ansilog` is a CLI-focused module that provides colorful output primitives and
 basic terminal control.  It currently supports 16-color terminal escape
